@@ -1,0 +1,182 @@
+\documentclass[a4paper,12pt, openany,oneside]{book}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\pagestyle{plain}
+\usepackage[italian]{babel}
+\usepackage{picture}
+\usepackage{hyperref}
+\usepackage[Symbol]{upgreek}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+%\usepackage{showframe}
+\usepackage{float}
+\usepackage{algorithm, algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,shapes.multipart}
+\usepackage{geometry,lipsum,graphicx}
+\usepackage{pdfpages}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{wrapfig}
+\usepackage{biblatex}
+\addbibresource{bibliography.bib}
+\addbibresource{web.bib}
+\usepackage{xcolor}
+\usepackage{subcaption}
+\usepackage{cleveref}
+
+\lstdefinelanguage{docker}{
+  basicstyle=\scriptsize \ttfamily \color{black} \bfseries,
+  keywords={FROM, RUN, COPY, ADD, ENTRYPOINT, CMD,  ENV, ARG, WORKDIR, EXPOSE, LABEL, USER, VOLUME, STOPSIGNAL, ONBUILD, MAINTAINER},
+  keywordstyle=\color{blue}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{\#},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]",
+  showspaces=false,               
+  showstringspaces=false,        
+  showtabs=false,                
+  stepnumber=1,                   
+  tabsize=5,                     
+  title=\lstname,
+  frame=bt,
+  numberstyle=\tiny\color{orange}, 
+  rulecolor=\color{black},
+  aboveskip=5mm,
+  belowskip=-5mm, 
+  breakatwhitespace=false,       
+  breaklines=true            
+}
+
+\lstdefinelanguage{cpp}{
+      %backgroundcolor=\color{lgrey},  
+      basicstyle=\scriptsize \ttfamily \color{black} \bfseries,  
+      aboveskip=5mm,
+      belowskip=-5mm, 
+      breakatwhitespace=false,       
+      breaklines=true,               
+      captionpos=b,                   
+      commentstyle=\color{dkgreen},   
+      deletekeywords={...},          
+      escapeinside={\%*}{*)},                  
+      frame=bt,                  
+      language=C++,                
+      keywordstyle=\color{purple},  
+      morekeywords={BRIEFDescriptorConfig,string,TiXmlNode,DetectorDescriptorConfigContainer,istringstream,cerr,exit,pcl}, 
+      identifierstyle=\color{black},
+      stringstyle=\color{blue},   
+      keywordstyle=\color{green},
+      numbersep=5pt,                  
+      numberstyle=\tiny\color{orange}, 
+      rulecolor=\color{black},        
+      showspaces=false,               
+      showstringspaces=false,        
+      showtabs=false,                
+      stepnumber=1,                   
+      tabsize=5,                     
+      title=\lstname,   
+    }
+    
+    \lstdefinelanguage{xml}{
+      %backgroundcolor=\color{lgrey},  
+      basicstyle=\scriptsize,
+      aboveskip=5mm,
+      belowskip=-5mm, 
+      belowcaptionskip=0mm,  
+      breakatwhitespace=false,       
+      breaklines=true,               
+      captionpos=b,                   
+      commentstyle=\color{gray},            
+      frame=bt,       
+      morestring=[b]",
+      morestring=[s]{>}{<},
+      morecomment=[s]{<?}{?>},
+      stringstyle=\color{black},
+      identifierstyle=\color{darkblue},
+      keywordstyle=\color{cyan},
+      morekeywords={xmlns,version,type,ira_open_street_map}          
+      %language=XML,      
+      numbers=none,                 
+      numbersep=5pt,                  
+      numberstyle=\tiny\color{black},       
+      showspaces=false,               
+      showstringspaces=false,        
+      showtabs=false,                
+      stepnumber=1,                   
+      tabsize=5,
+      escapeinside={<@}{@>},                     
+      title=\lstname,                 
+    }
+    
+\iffalse
+\lstset{ %
+  %language=XML,                % the language of the code
+  basicstyle=\tiny,           % the size of the fonts that are used for the code
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line  will be numbered
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},      % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=none,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=1,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+%   title=\lstname,                   % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title
+  %identifierstyle=\color{magenta},
+  keywordstyle=\color{blue},          % keyword style
+  commentstyle=\color{dkgreen},       % comment style
+  stringstyle=\color{mauve},         % string literal style
+  escapeinside={-*}{*-},            % if you want to add a comment within your code
+  morekeywords={*,...}               % if you want to add more keywords to the set
+}
+\fi
+
+% Per Intestazione 
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\nouppercase{\leftmark}}
+\fancyhead[RE,LO]{\thepage}
+
+\begin{document} 
+\begin{titlepage}
+\input{frontespizio.tex}
+\end{titlepage}
+\begin{flushright}
+	\textit{    
+	Basta seguire la strada \\
+	e prima o poi si fa il giro del mondo. \\
+	Non può finire in nessun altro posto, no? \\
+	Jack Kerouac, On the Road
+		}
+\end{flushright}
+\thispagestyle{empty}
+\newpage
+\tableofcontents
+\newpage
+\input{Capitoli/chap0.tex}
+\input{Capitoli/chap1.tex}
+\input{Capitoli/Chap2.tex}
+\input{Capitoli/Chap3.tex}
+\input{Capitoli/Chap4.tex}
+\newpage
+\addcontentsline{toc}{chapter}{Lista delle Immagini}
+\listoffigures\newpage
+\addcontentsline{toc}{chapter}{Lista del Codice}
+\lstlistoflistings\newpage
+\nocite{*}
+\printbibheading[heading=bibintoc, title={Riferimenti}]
+\printbibliography[nottype=online,heading=subbibintoc,title={Bibliografia}]
+\printbibliography[type=online,heading=subbibintoc,title={Siti}]
+
+\end{document}
